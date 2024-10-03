@@ -14,3 +14,57 @@ h2 {
 .title-line-height {
     line-height: 4rem;
 }
+@media(max-width: 1318px) {
+    .home-img {
+        width: 700px;
+        height: 700px;
+        object-fit: cover;
+    }
+}
+@media(max-width: 1024px) {
+    .home-img {
+        width: 620px;
+        height: 620px;
+        object-fit: cover;
+    }
+    h2 {
+        font-size: 2.5rem;
+    }
+    .title-line-height {
+        line-height: 3.5rem;
+    }
+}
+@media(max-width: 958px) {
+    .home-img {
+        width: 500px;
+        height: 500px;
+        object-fit: cover;
+    }
+    .home-title {
+        text-align: center;
+        font-size: 2.2rem;
+        align-items: center;
+    }
+    .home-para {
+        text-align: center;
+        font-size: 1rem;
+        align-items: center;
+    }
+    .title-line-height {
+        line-height: 3.5rem;
+    }
+    .home-content {
+        flex-direction: column-reverse;
+    }
+    .home-contents {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media(max-width: 493px) {
+    .home-img {
+        width: 300px;
+        height: 300px;
+    }
+}
