@@ -1,0 +1,35 @@
+.logo {
+    color: $dark;
+    font-weight: $fw-700;
+    font-size: 33px;
+}
+.navbar-container {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    width: 85%;
+}
+.real-green {
+    color: $real-green;
+}
+.dark {
+    color: $dark;
+}
+.yellow {
+    color: $yellow;
+}
+.blue {
+    color: $blue;
+}
+body {
+    font-family: $primary-font-family;
+    background-color: $white;
+    line-height: 35px;
+    color: $dark;
+}
+.btn-bg-dark {
+    background-color: $blue;
+}
+.btn-bg-dark:hover {
+    background-color: $dark-hover;
+}
