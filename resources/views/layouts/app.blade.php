@@ -25,7 +25,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-sm bg-light shadow-sm">
             <div class="navbar-container">
-                <a class="logo text-decoration-none" href="{{ url('/home') }}">
+                <a class="logo text-decoration-none" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                     <img src="{{ asset('img/home/logo.png') }}" alt="" style="width: 90px">
                 </a>

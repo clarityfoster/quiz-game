@@ -10,6 +10,42 @@ $body-font-size: 1.2rem;
 $line-height-base: 1.8;
 $fw-700: 700;
 
+.poppins-light {
+    font-family: "Poppins", system-ui;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .poppins-regular {
+    font-family: "Poppins", system-ui;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .poppins-medium {
+    font-family: "Poppins", system-ui;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .poppins-semibold {
+    font-family: "Poppins", system-ui;
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  .poppins-bold {
+    font-family: "Poppins", system-ui;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .poppins-light-italic {
+    font-family: "Poppins", system-ui;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
 // Colors
 $real-green: #3E7E55;
 $second-green: #7ABD87;
@@ -23,3 +59,8 @@ $dark: #3a3e41;
 $dark-hover: #4a4c4e;
 $yellow: #f5c64f;
 $blue: #4a92e3;
+$pink: #c74c8c;
+$purple: #990099;
+$blue: #00aeff;
+$sunny: #5D4037;
+$tropical: #FFFF00;

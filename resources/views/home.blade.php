@@ -10,7 +10,7 @@
                 <p class="home-para">
                     Ready to put your knowledge to the test? Our quizzes are designed to entertain and challenge players of all ages. Are you up for the challenge? Let the fun begin! 
                 </p>
-                <a href="#" class="btn btn-warning btn-lg text-white mt-3 get-started-btn">Get Started</a>
+                <a href="{{ route('choice') }}" class="btn btn-warning btn-lg text-white mt-3 get-started-btn">Get Started</a>
             </div>
             <img class="home-img" src="{{ asset('img/home/home.png') }}" alt="">
         </div>
