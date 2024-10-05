@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row justify-content-center gap-5 custom-container mt-5">
-        <a href="{{ route('get-ready') }}" class="col d-flex flex-column flex-md-row justify-content-between align-items-center text-decoration-none rounded-4 cherry-blossom-linear p-4 shadow choice-card" 
+        <a href="{{ route('play') }}" class="col d-flex flex-column flex-md-row justify-content-between align-items-center text-decoration-none rounded-4 cherry-blossom-linear p-4 shadow choice-card" 
            style="max-width: 450px; height: auto; overflow: hidden;">
             <div class="card-body text-center text-md-start text-white">
                 <button class="btn btn-outline-light rounded-3 mb-3">
