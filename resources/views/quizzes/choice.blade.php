@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="row justify-content-center gap-5 custom-container mt-5">
-        <a href="{{ route('play') }}" class="col d-flex flex-column flex-md-row justify-content-between align-items-center text-decoration-none rounded-4 cherry-blossom-linear p-4 shadow choice-card" 
+        <a href="{{ route('earth-play') }}" class="col d-flex flex-column flex-md-row justify-content-between align-items-center text-decoration-none rounded-4 cherry-blossom-linear p-4 shadow choice-card" 
            style="max-width: 450px; height: auto; overflow: hidden;">
             <div class="card-body text-center text-md-start text-white">
                 <button class="btn btn-outline-light rounded-3 mb-3">
@@ -14,18 +14,19 @@
             <img class="img-fluid d-none d-md-block" src="{{ asset('img/choice/earth.svg') }}" alt="Earth Image"
                  style="max-width: 200px;">
         </a>
-        <a href="#" class="col d-flex flex-column flex-md-row justify-content-between align-items-center text-decoration-none rounded-4 blue-linear p-4 shadow choice-card" 
-           style="max-width: 450px; height: auto; overflow: hidden;">
-            <div class="card-body text-center text-md-start text-white">
-                <button class="btn btn-outline-light rounded-3 mb-3">
-                    <b>2</b>
-                </button>
-                <p class="m-0 small text-uppercase">Level one</p>
-                <h4 class="fw-bold">Ocean</h4>
-            </div>
-            <img class="img-fluid d-none d-md-block" src="{{ asset('img/choice/ocean1.svg') }}" alt="Land Image"
-                 style="max-width: 200px;">
-        </a>
+        <a href="{{ route('ocean-play', ['step' => 0]) }}" class="col d-flex flex-column flex-md-row justify-content-between align-items-center text-decoration-none rounded-4 blue-linear p-4 shadow choice-card" 
+            style="max-width: 450px; height: auto; overflow: hidden;">
+             <div class="card-body text-center text-md-start text-white">
+                 <button class="btn btn-outline-light rounded-3 mb-3">
+                     <b>2</b>
+                 </button>
+                 <p class="m-0 small text-uppercase">Level one</p>
+                 <h4 class="fw-bold">Ocean</h4>
+             </div>
+             <img class="img-fluid d-none d-md-block" src="{{ asset('img/choice/ocean1.svg') }}" alt="Land Image"
+                  style="max-width: 200px;">
+         </a>
+         
         <a href="#" class="col d-flex flex-column flex-md-row justify-content-between align-items-center text-decoration-none rounded-4 purple-linear p-4 shadow choice-card" 
            style="max-width: 450px; height: auto; overflow: hidden;">
             <div class="card-body text-center text-md-start text-white">

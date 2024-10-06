@@ -9,7 +9,7 @@
         @endif
         <h3 class="text-center mb-4">{{ $quizTitle }}</h3>
 
-        <form method="POST" action="{{ route('submit') }}">
+        <form method="POST" action="{{ route('earth-submit') }}">
             @csrf
             @foreach ($questions as $index => $question)
                 <div class="question-block p-4 mb-4 border rounded-4 shadow-sm" style="background-color: #f9f9f9;">
