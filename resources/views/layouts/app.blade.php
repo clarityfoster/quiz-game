@@ -27,7 +27,7 @@
             <div class="navbar-container">
                 <a class="logo text-decoration-none" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
-                    <img src="{{ asset('img/home/logo.png') }}" alt="" style="width: 90px">
+                    <img src="{{ asset('img/home/logo.png') }}" alt="Logo" style="width: 90px">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -38,7 +38,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-
+                        <li class="nav-item">
+                            <a href="" class="nav-link ms-3">
+                                View My Results
+                            </a>                             
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

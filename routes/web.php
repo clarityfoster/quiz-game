@@ -8,13 +8,16 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/quizzes/index/{step}/{category_id}', [QuizController::class, 'index'])->name('index');
+Route::post('/quizzes/submit/{step}/{category_id}', [QuizController::class, 'submit'])->name('submit');
+Route::get('/quizzes/add', [QuizController::class, 'add'])->name('add');
+Route::get('/quizzes/result/{category_id}', [QuizController::class, 'result'])->name('result');
+Route::get('/quizzes/choice', [QuizController::class, 'choices'])->name('choices');
+
 Route::get('/quizzes/choose', [QuizController::class, 'choice'])->name('choice');
-Route::get('/quizzes/earth-play', [QuizController::class, 'earthPlay'])->name('earth-play');
-Route::post('/quizzes/earth-submit', [QuizController::class, 'earthSubmit'])->name('earth-submit');
-
-Route::get('/quizzes/ocean-play/{step}', [QuizController::class, 'oceanPlay'])->name('ocean-play');
-Route::post('/quizzes/ocean-submit/{step}', [QuizController::class, 'oceanSubmit'])->name('ocean-submit');
-Route::get('/quizzes/ocean-result', [QuizController::class, 'oceanResult'])->name('ocean-result');
 
 
 
+
+
+Route::post('/quizzes/create', [QuizController::class, 'createQuiz'])->name('create');
