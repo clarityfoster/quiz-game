@@ -39,8 +39,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a href="" class="nav-link ms-3">
-                                View My Results
+                            <a href="{{ route('leaderboard') }}" class="nav-link ms-3">
+                                Leaderborads
                             </a>                             
                         </li>
                     </ul>

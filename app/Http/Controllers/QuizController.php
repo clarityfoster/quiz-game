@@ -8,13 +8,18 @@ use App\Models\Questions;
 use App\Models\Options;
 use App\Models\Category;
 use App\Models\UserAnswer;
+use App\Models\User;
 
 class QuizController extends Controller
 {
     public function index($step, $category_id) {
+        $userId = auth()->id();
         $category = Category::find($category_id);
         $quizzes = Quiz::where('category_id', $category_id)->get();
         $totalQuestions = $quizzes->count();
+        if($step == 0) {
+            UserAnswer::where('category_id', $category_id)->where('user_id', $userId)->delete();
+        }
         if($step < $totalQuestions && $step >= 0) {
             $currentQuestion = $quizzes[$step]; 
         } else {
@@ -79,10 +84,6 @@ class QuizController extends Controller
             'step' => $step,
         ]);
     }
-    
-    
-    
-    
     public function add() {
         $category = Category::all();
         return view('quizzes.add-questions' ,[
@@ -106,12 +107,19 @@ class QuizController extends Controller
         $quiz->correct_answer = request()->correct_answer;
         $quiz->category_id = request()->category_id;
         $quiz->save();
-        return redirect()->route('index', ['step' => 0])
-                     ->with('success', 'Quiz question added successfully!');
+        return redirect()->back()->with('success', 'Quiz added successfully!');
     } 
-    public function choice() {
-        
-        return view('quizzes.choice');
+    public function leaderboard() {
+        $categories = Category::all();
+        $userAnswer = UserAnswer::with('user')
+                            ->orderBy('score', 'desc')
+                            ->get();
+        $users = User::all();
+        return view('quizzes.leaderboard' ,[
+            'userAnswer' => $userAnswer,
+            'users' => $users,
+            'categories' => $categories,
+        ]);
     }
 }    
 

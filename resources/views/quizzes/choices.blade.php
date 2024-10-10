@@ -36,7 +36,7 @@
                             <button class="btn btn-outline-light rounded-3 mb-3">
                                 <b>{{ $categories->id }}</b>
                             </button>
-                            <p class="m-0 small text-uppercase">Level one</p>
+                            <p class="m-0 small text-uppercase">Level One</p>
                             <h4 class="fw-bold">{{ $categories->name }}</h4>
                         </div>
                         <img class="img-fluid d-none d-md-block" src="{{ $img[$index % count($img)] }}" alt="Earth Image"

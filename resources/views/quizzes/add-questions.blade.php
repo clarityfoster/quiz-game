@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
     <div class="custom-container">
-        @include('share.alerts')
         <form action="{{ route('create') }}" method="POST" class="w-50 m-auto my-5">
+            @include('share.alerts')
             @csrf
             <h3 class="mb-4">Add Questions</h3>
             <div class="form-group mb-3">

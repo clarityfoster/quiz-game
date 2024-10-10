@@ -2,12 +2,25 @@
 
 @section('content')
     <div class="d-flex flex-column gap-5 align-items-center justify-content-center custom-container" style="min-height: 85vh;">
-        <h3 class="card-title mb-4" style="color: #0097FF">
-            {{  $quizzes[0]->category->name }}
-        </h3>
         @foreach ($quizzes as $quiz)
+        @php
+            $linear = [
+                1 => 'cherry-blossom-linear',
+                2 => 'blue-linear',
+                3 => 'purple-linear',
+                4 => 'sunny-linear',
+                5 => 'emerald-linear',
+                6 => 'berry-linear',
+                7 => 'peacock-blue-linear',
+                8 => 'ruby-red-linear',
+                9 => 'flamingo-pink-linear',
+            ];
+        @endphp
+        <h3 class="card-title mb-4 p-3 rounded-3 text-light {{ $linear[$quiz->category_id] }}" style="color: #0097FF">
+            {{  $quiz->category->name }}
+        </h3>
             @include('share.alerts')
-            <div class="card shadow rounded-4 w-50 blue-linear p-4 text-white">
+            <div class="card shadow rounded-4 w-50 {{ $linear[$quiz->category_id] }} p-4 text-white">
                 <div class="card-body">
                     <div class="text-center mb-5">
                         <h4 class="card-subtitle text-light">
