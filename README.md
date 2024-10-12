@@ -17,7 +17,6 @@ This is a web-based quiz game built using Laravel. The app allows users to parti
 
 ## Technologies Used
 - Laravel
-- PHP
 - MySQL
 - HTML/SCSS
 - Bootstrap
