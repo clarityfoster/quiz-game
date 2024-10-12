@@ -11,6 +11,9 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function answers() {
+        return $this->hasMany('App\Models\UserAnswer');
+    }
     /**
      * The attributes that are mass assignable.
      *

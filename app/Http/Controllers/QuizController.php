@@ -110,15 +110,27 @@ class QuizController extends Controller
         return redirect()->back()->with('success', 'Quiz added successfully!');
     } 
     public function leaderboard() {
+        $questions = Quiz::all();
         $categories = Category::all();
         $userAnswer = UserAnswer::with('user')
-                            ->orderBy('score', 'desc')
-                            ->get();
-        $users = User::all();
+        ->orderBy('score', 'desc')
+        ->get();
+        $users = User::all()->map(function($user) {
+            $user->total_score = UserAnswer::where('user_id', $user->id)->sum('score');
+            return $user;
+        });
+        $users = $users->sortByDesc('total_score');
+        
+        $questionsByCategories = Quiz::selectRaw('category_id, COUNT(*) as questions_count')
+                        ->groupBy('category_id')
+                        ->pluck('questions_count', 'category_id');
+
         return view('quizzes.leaderboard' ,[
             'userAnswer' => $userAnswer,
             'users' => $users,
             'categories' => $categories,
+            'questions' => $questions,
+            'questionsByCategories' => $questionsByCategories
         ]);
     }
 }    
