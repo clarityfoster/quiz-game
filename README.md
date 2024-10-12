@@ -9,7 +9,7 @@ This is a web-based quiz game application built using Laravel. The app allows us
 - **Participating Quiz**: 
   - Users can participate in different quizzes by categories.
 
-- **Quizzes Creation**: 
+- **Quiz Creation**: 
   - Admin can create the quizzes by categories.
 
 - **Leaderboard**: 
