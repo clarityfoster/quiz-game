@@ -1,7 +1,11 @@
 @extends('layouts.app')
 @section('content')
     <div class="custom-container">
-        <table class="table bg-dark">
+        <h4 class="my-4">
+            Leaderborad
+            <span class="badge text-bg-secondary">{{ $users->count() }}</span>
+        </h4>
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -28,13 +32,13 @@
                         @foreach ($categories as $cat)
                             <td>{{ $usersCategoryScore->get($cat->id, 0) }}
                                 <span class="text-muted">
-                                    / {{ $questionsByCategories[$cat->id] }}
+                                    / {{ $questionsByCategories[$cat->id] ?? "NULL" }}
                             </td>
                             </span>
                         @endforeach
                         <td>
                             <b>{{ $usersCategoryScore->sum() }}
-                                <span class="text-muted"> / {{ $questions->count() }}</span>
+                                <span class="text-muted"> / {{ $questions->count() ?? "NULL" }}</span>
                             </b>
                         </td>
                     </tr>

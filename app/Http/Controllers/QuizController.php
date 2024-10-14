@@ -25,13 +25,17 @@ class QuizController extends Controller
         } else {
             return back();
         }
-        return view('quizzes.foods', [
-            'quizzes' => [$currentQuestion],
-            'totalQuestions' => $totalQuestions,
-            'step' => $step,
-            'category' => $category,
-            'category_id' => $category_id
-        ]);
+        if(auth()->user()->ban) {
+            return redirect()->back()->with('ban', 'Your account is suspended');
+        } else {
+            return view('quizzes.foods', [
+                'quizzes' => [$currentQuestion],
+                'totalQuestions' => $totalQuestions,
+                'step' => $step,
+                'category' => $category,
+                'category_id' => $category_id
+            ]);
+        }
     }
     public function submit(Request $request, $step, $category_id) {
         $category = Category::find($category_id);
@@ -77,11 +81,15 @@ class QuizController extends Controller
         ]);
     }
     public function choices() {
+        $userId = auth()->id();
         $category = Category::all();
         $step = 0;
+        $playedCategoires = UserAnswer::where('user_id', $userId)
+                            ->pluck('category_id')->toArray();
         return view('quizzes.choices', [
             'category' => $category,
             'step' => $step,
+            'playedCategory' => $playedCategoires,
         ]);
     }
     public function add() {
@@ -120,7 +128,7 @@ class QuizController extends Controller
             return $user;
         });
         $users = $users->sortByDesc('total_score');
-        
+
         $questionsByCategories = Quiz::selectRaw('category_id, COUNT(*) as questions_count')
                         ->groupBy('category_id')
                         ->pluck('questions_count', 'category_id');
@@ -132,6 +140,30 @@ class QuizController extends Controller
             'questions' => $questions,
             'questionsByCategories' => $questionsByCategories
         ]);
+    }
+    public function dashboard() {
+        $users = User::all();
+        return view('quizzes.dashboard', [
+            'users' => $users
+        ]);
+    }
+    public function changeRole($id) {
+        $user = User::findOrFail($id);
+        $user->role_id = request()->input('role_id');
+        $user->save();
+        return redirect()->back()->with('info', 'Role has been changed successfully');
+    }
+    public function ban($id) {
+        $user = User::findOrFail($id);
+        $user->ban = true;
+        $user->save();
+        return redirect()->back()->with('warning', 'User has been banned');
+    }
+    public function unban($id) {
+        $user = User::findOrFail($id);
+        $user->ban = false;
+        $user->save();
+        return redirect()->back()->with('warning', 'User has been unbanned');
     }
 }    
 

@@ -14,6 +14,9 @@ class User extends Authenticatable
     public function answers() {
         return $this->hasMany('App\Models\UserAnswer');
     }
+    public function role() {
+        return $this->belongsTo('App\Models\Role');
+    }
     /**
      * The attributes that are mass assignable.
      *

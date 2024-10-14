@@ -29,5 +29,10 @@ class DatabaseSeeder extends Seeder
         foreach ($list as $name) {
             \App\Models\Category::factory()->create(['name' => $name]);
         }
+
+        $list = ['Admin', 'Manager', 'User'];
+        foreach ($list as $name) {
+            \App\Models\Role::factory()->create(['name' => $name]);
+        }
     }
 }

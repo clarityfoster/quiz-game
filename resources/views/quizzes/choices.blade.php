@@ -26,10 +26,20 @@
         ];
     @endphp
     <div class="container mt-5">
+        @include('share.alerts')
         <div class="row justify-content-center">
             @foreach ($category as $index => $categories)
                 <div class="col-12 col-md-4 mb-4">
-                    <a href="{{ route('index', ['step' => $step, 'category_id' => $categories->id]) }}"
+                    @php
+                        $href = in_array($categories->id, $playedCategory) 
+                        ? "#" 
+                        : route('index', ['step' => $step, 'category_id' => $categories->id]);
+                        
+                        $onclick = in_array($categories->id, $playedCategory)
+                        ? "onclick=\"confirmPlayAgain('" . route('index', ['step' => $step, 'category_id' => $categories->id]) . "')\""
+                        : "";
+                    @endphp
+                    <a href="{{ $href }}" {!! $onclick !!}
                         class="col d-flex flex-column flex-md-row justify-content-between align-items-center text-decoration-none rounded-4 {{ $linear[$index % count($linear)] }} p-4 shadow choice-card"
                         style="max-width: 450px; height: auto; overflow: hidden;">
                         <div class="card-body text-center text-md-start text-white">
@@ -47,3 +57,10 @@
         </div>
     </div>
 @endsection
+<script>
+    function confirmPlayAgain(url) {
+        if(confirm("Are you sure? You've already played this quiz.")) {
+            window.location.href = url;
+        }
+    }
+</script>
