@@ -51,27 +51,19 @@
                                                 Change Role
                                             </a>
                                             <div class="dropdown-menu drop-down-menu-dark">
+                                                @foreach ([
+                                                    1 => "Admin",
+                                                    2 => "Manager",
+                                                    3 => "User",
+                                                ] as $roleId => $roleName)
                                                 <form action="{{ route('changeRole', ['id' => $user->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('PUT')
-                                                    <input name="role_id" type="hidden" value="1">
-                                                    <button type="submit" class="dropdown-item">Admin</button>
+                                                    <input name="role_id" type="hidden" value="{{ $roleId }}">
+                                                    <button type="submit" class="dropdown-item">{{ $roleName }}</button>
                                                 </form>
-                                                <form action="{{ route('changeRole', ['id' => $user->id]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <input name="role_id" type="hidden" value="2">
-                                                    <button type="submit" class="dropdown-item">Manager</button>
-                                                </form>
-                                                <form action="{{ route('changeRole', ['id' => $user->id]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <input name="role_id" type="hidden" value="3">
-                                                    <button type="submit" class="dropdown-item">User</button>
-                                                </form>
+                                                @endforeach
                                             </div>
                                         </div>
                                     @endif
