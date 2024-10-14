@@ -10,10 +10,14 @@ This is a web-based quiz game built using Laravel. The app allows users to parti
   - Users can participate in different quizzes by categories.
 
 - **Quiz Creation**: 
-  - Admin can create the quizzes by categories.
+  - Admins and managers can create the quizzes by categories.
 
 - **Leaderboard**: 
-  - The leaderboard shows which users are ranked at the top based on their quiz's score.
+  - Leaderboard shows which users are ranked at the top based on their quiz's score.
+
+- **Admin Dashboard**:
+  - Admins can change the roles like managers and users.
+  - Users can be banned by admins and managers.
 
 ## Technologies Used
 - Laravel
