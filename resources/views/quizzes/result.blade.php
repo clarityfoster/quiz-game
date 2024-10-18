@@ -19,8 +19,8 @@
                     <a href="{{ route('index', ['step' => 0, 'category_id' => $category_id]) }}" class="btn btn-outline-secondary rounded-pill px-4">
                          Try Again
                     </a>
-                    <a href="{{ route('home') }}" class="btn btn-secondary rounded-pill ms-3 px-4">
-                         Back to Home 
+                    <a href="{{ route('choices') }}" class="btn btn-secondary rounded-pill ms-3 px-4">
+                         Back to Quiz 
                     </a>
                 </div>
             </div>

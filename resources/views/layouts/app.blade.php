@@ -41,7 +41,7 @@
                         @if (!Request::routeIs('leaderboard'))
                             <li class="nav-item">
                                 <a href="{{ route('leaderboard') }}" class="nav-link ms-3">
-                                    Leaderborad
+                                    Leaderboard
                                 </a>
                             </li>
                         @endif

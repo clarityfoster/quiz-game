@@ -68,21 +68,12 @@
                                         </div>
                                     @endif
                                     @if (auth()->user()->id !== $user->id && $user->role_id !== 1)
-                                        @if ($user->ban == 0)
-                                            <form action="{{ route('ban', ['id' => $user->id]) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="btn btn-outline-warning">
-                                                    Ban
-                                                </button>
-                                            </form>
-                                        @else
-                                            <form action="{{ route('unban', ['id' => $user->id]) }}" method="POST">
-                                                @csrf
-                                                <button type="submit" class="btn btn-warning">
-                                                    Unban
-                                                </button>
-                                            </form>
-                                        @endif
+                                        <form action="{{ $user->ban == 0 ? route('ban', ['id' => $user->id]) : route('unban', ['id' => $user->id]) }}" method="post">
+                                            @csrf
+                                            <button name="ban" type="submit" class="btn {{ $user->ban == 0 ? 'btn-outline-warning' : 'btn-warning' }}">
+                                                {{ $user->ban == 0 ? 'Ban' : 'Unban' }}
+                                            </button>
+                                        </form>
                                     @endif
                                 </div>
                             </td>
