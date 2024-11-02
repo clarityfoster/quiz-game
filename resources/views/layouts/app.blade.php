@@ -7,8 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="icon" href="{{ asset('img/home/quiz.png') }}" type="image/png">
+    <title>{{ config('app.name', 'laravel') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,13 +45,15 @@
                                 </a>
                             </li>
                         @endif
-                        @if (!Request::routeIs('dashboard'))
-                            <li class="nav-item">
-                                <a href="{{ route('dashboard') }}" class="nav-link ms-3">
-                                    Dashboard
-                                </a>
-                            </li>
-                        @endif
+                        @auth
+                            @if (!Request::routeIs('dashboard'))
+                                <li class="nav-item">
+                                    <a href="{{ route('dashboard') }}" class="nav-link ms-3">
+                                        Dashboard
+                                    </a>
+                                </li>
+                            @endif
+                        @endauth
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 @foreach ($users as $index => $user)
-                    <tr class="{{ auth()->user()->id == $user->id ? "table-active" : "" }}">
+                    <tr class="{{ auth()->check() && (auth()->user()->id == $user->id ? "table-active" : "") }}">
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $user->name }}</td>
                         @php

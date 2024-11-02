@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('question');
             $table->json('options');
+            $table->integer('correct_answer');
             $table->integer('category_id');
             $table->timestamps();
         });

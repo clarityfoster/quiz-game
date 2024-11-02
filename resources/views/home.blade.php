@@ -12,13 +12,15 @@
                     Ready to put your knowledge to the test? Our quizzes are designed to entertain and challenge players of
                     all ages. Are you up for the challenge? Let the fun begin!
                 </p>
-                @if (auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
+                @if (auth()->check() && (auth()->user()->role_id == 1 || auth()->user()->role_id == 2))
                     <a href="{{ route('add') }}" class="btn btn-info btn-lg text-white mt-3 get-started-btn me-3">
                         Add Questions
                     </a>
                 @endif
-                <a href="{{ route('choices') }}" class="btn btn-warning btn-lg text-white mt-3 get-started-btn">Get
-                    Started</a>
+                @auth
+                    <a href="{{ route('choices') }}" class="btn btn-warning btn-lg text-white mt-3 get-started-btn">Get
+                        Started</a>
+                @endauth
             </div>
             <img class="home-img" src="{{ asset('img/home/home.png') }}" alt="">
         </div>

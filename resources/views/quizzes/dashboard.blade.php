@@ -13,7 +13,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Gmail</th>
                     <th scope="col">Role</th>
-                    @if (auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
+                    @if (auth()->check() && (auth()->user()->role_id == 1 || auth()->user()->role_id == 2))
                         <th scope="col">Change Role</th>
                     @endif
                 </tr>
@@ -41,7 +41,8 @@
                             @endphp
                             <span class="badge {{ $badgeBg }}">{{ $user->role->name }}</span>
                         </td>
-                        @if (auth()->user()->role_id == 1 || auth()->user()->role_id == 2)
+
+                        @if (auth()->check() && (auth()->user()->role_id == 1 || auth()->user()->role_id == 2))
                             <td>
                                 <div class="btn-group">
                                     @if (auth()->user()->role_id == 1)
@@ -52,25 +53,29 @@
                                             </a>
                                             <div class="dropdown-menu drop-down-menu-dark">
                                                 @foreach ([
-                                                    1 => "Admin",
-                                                    2 => "Manager",
-                                                    3 => "User",
-                                                ] as $roleId => $roleName)
-                                                <form action="{{ route('changeRole', ['id' => $user->id]) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <input name="role_id" type="hidden" value="{{ $roleId }}">
-                                                    <button type="submit" class="dropdown-item">{{ $roleName }}</button>
-                                                </form>
+            1 => 'Admin',
+            2 => 'Manager',
+            3 => 'User',
+        ] as $roleId => $roleName)
+                                                    <form action="{{ route('changeRole', ['id' => $user->id]) }}"
+                                                        method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <input name="role_id" type="hidden" value="{{ $roleId }}">
+                                                        <button type="submit"
+                                                            class="dropdown-item">{{ $roleName }}</button>
+                                                    </form>
                                                 @endforeach
                                             </div>
                                         </div>
                                     @endif
                                     @if (auth()->user()->id !== $user->id && $user->role_id !== 1)
-                                        <form action="{{ $user->ban == 0 ? route('ban', ['id' => $user->id]) : route('unban', ['id' => $user->id]) }}" method="post">
+                                        <form
+                                            action="{{ $user->ban == 0 ? route('ban', ['id' => $user->id]) : route('unban', ['id' => $user->id]) }}"
+                                            method="post">
                                             @csrf
-                                            <button name="ban" type="submit" class="btn {{ $user->ban == 0 ? 'btn-outline-warning' : 'btn-warning' }}">
+                                            <button name="ban" type="submit"
+                                                class="btn {{ $user->ban == 0 ? 'btn-outline-warning' : 'btn-warning' }}">
                                                 {{ $user->ban == 0 ? 'Ban' : 'Unban' }}
                                             </button>
                                         </form>
