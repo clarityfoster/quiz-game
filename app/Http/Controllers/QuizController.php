@@ -25,7 +25,7 @@ class QuizController extends Controller
         } else {
             return back();
         }
-        if(auth()->user()->ban) {
+        if(auth()->check() && (auth()->user()->ban)) {
             return redirect()->back()->with('ban', 'Your account is suspended');
         } else {
             return view('quizzes.foods', [

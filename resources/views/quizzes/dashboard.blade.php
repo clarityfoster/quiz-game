@@ -42,10 +42,10 @@
                             <span class="badge {{ $badgeBg }}">{{ $user->role->name }}</span>
                         </td>
 
-                        @if (auth()->check() && (auth()->user()->role_id == 1 || auth()->user()->role_id == 2))
+                        @if (auth()->check() && (auth()->user()->role_id == 1 || auth()->user()->role_id == 2)) 
                             <td>
                                 <div class="btn-group">
-                                    @if (auth()->user()->role_id == 1)
+                                    @if (auth()->user()->role_id == 1 && $user->role_id != 1)
                                         <div class="dropdown">
                                             <a href="" class="btn btn-outline-secondary dropdown-toggle me-2"
                                                 data-bs-toggle="dropdown">
@@ -69,7 +69,8 @@
                                             </div>
                                         </div>
                                     @endif
-                                    @if (auth()->user()->id !== $user->id && $user->role_id !== 1)
+                                    @if (( auth()->user()->role_id == 1 && $user->role_id != 1 ) || 
+                                        ( auth()->user()->role_id == 2 && $user->role_id == 3 ))
                                         <form
                                             action="{{ $user->ban == 0 ? route('ban', ['id' => $user->id]) : route('unban', ['id' => $user->id]) }}"
                                             method="post">
