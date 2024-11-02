@@ -20,7 +20,7 @@
             </thead>
             <tbody>
                 @foreach ($users as $user)
-                    <tr>
+                    <tr class="{{ auth()->check() && auth()->user()->id == $user->id ? 'table-active' : '' }}">
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
@@ -41,7 +41,6 @@
                             @endphp
                             <span class="badge {{ $badgeBg }}">{{ $user->role->name }}</span>
                         </td>
-
                         @if (auth()->check() && (auth()->user()->role_id == 1 || auth()->user()->role_id == 2)) 
                             <td>
                                 <div class="btn-group">
