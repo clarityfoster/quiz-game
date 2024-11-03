@@ -31,12 +31,52 @@
 .emerald-linear {
     background: linear-gradient(to right, #50C878, #006B3F);
 }
+// Colors for Text
+.cherry-blossom-linear1 {
+    background: linear-gradient(to right, #FFB6C1, #FF69B4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.blue-linear1 {
+    background: linear-gradient(to right, #00D2FF, #0097FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.purple-linear1 {
+    background: linear-gradient(to right, #AE00FB, #D900AC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sunny-linear1 {
+    background: linear-gradient(to left, #FFD700, #FFA500, #FF4500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.berry-linear1 {
+    background: linear-gradient(to right, #FF0080, #FF6F91);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.ruby-red-linear1 {
+    background: linear-gradient(to right, #B22222, #FF4500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.peacock-blue-linear1 {
+    background: linear-gradient(to right, #007FFF, #00BFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.flamingo-pink-linear1 {
+    background: linear-gradient(to right, #FFA500, #FFDE00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 .choice-card {
     position: relative; 
     overflow: hidden;  
     transition: ease-in 0.2s;
 }
-
 .choice-card::after {
     content: ''; 
     position: absolute; 

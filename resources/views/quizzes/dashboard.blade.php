@@ -4,7 +4,7 @@
         @include('share.alerts')
         <h4 class="my-4">
             Manage Users
-            <span class="badge text-bg-secondary">{{ $users->count() }}</span>
+            <span class="badge bg-primary">{{ $users->count() }}</span>
         </h4>
         <table class="table table-bordered">
             <thead>
