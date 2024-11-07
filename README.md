@@ -4,7 +4,6 @@ This is a web-based quiz game built using Laravel. The app allows users to parti
 ## Features
 - **User Authentication**: 
   - Registration and login system for users.
-  - Password reset functionality.
 
 - **Participating Quiz**: 
   - Users can participate in different quizzes by categories.
